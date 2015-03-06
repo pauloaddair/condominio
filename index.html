@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="Copyright" content="&copy; 2012-2015, Intel Corporation. All rights reserved." />
+
+    <title>Virtual Condo 0.9</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <!-- note: use jquery.mobile-1.1.1.min.css (and jquery.mobile-1.1.1-custom.css) for production -->
+    <link rel="stylesheet" type="text/css" href="vendor/jquery.mobile/jquery.mobile-1.1.1.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/jquery.mobile/jquery.mobile-1.1.1-custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Recommended location for your third-party JavaScript libraries -->
+    <!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/mc/hammer.js"></script> -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+    <!-- note: use jquery-1.8.0.min.js & jquery.mobile-1.1.1.min.js for production -->
+    <script type="text/javascript" src="app/deviceCheck.js"></script>
+    <script>
+    function includeJavaScript( url ){
+        var tag = document.createElement( 'script' );
+        tag.type = "text/javascript";
+        tag.src = url;
+
+        // Insert it to the <head>
+        document.getElementsByTagName("head")[0].appendChild( tag );
+    }
+
+    if (deviceCheck.windows8) {
+        includeJavaScript("vendor/jquery/jquery-1.8.2-win8-1.0.js");
+    } else {
+        includeJavaScript("vendor/jquery/jquery-1.8.0.js");
+    }
+    setTimeout(function(){
+        includeJavaScript("vendor/jquery.mobile/jquery.mobile-1.1.1.js");
+        includeJavaScript("app/springboard.js");
+        }, 100);
+    </script>
+
+<!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+    <script src="cordova.js"></script>
+
+</head>
+
+<body>
+
+    <!-- home page -->
+    <div data-role="page" id="home" data-theme="a">
+
+        <!-- content -->
+        <div data-role="content" class="springboard-container">
+
+            <!-- custom header -->
+            <div class="springboard-heading"><img src="images/condo1.png" width="100%" alt="Virtual Condo"></div>
+
+            <!-- use jquery mobile grid system to draw 2x2 springboard -->
+            <!-- ui-grid-a: divides page into a grid with 2 columns    -->
+            <!-- ui-block-a is left column, ui-block-b is right column -->
+
+            <div class="ui-grid-solo springboard">
+                <!-- row 1, column 1 -->
+                <div class="ui-block-a">
+                    <a href="#perfil" data-transition="slidedown">
+                        <img src="images/springboard/perfil.png" class="springboard-portrait-img" id="profile"/>
+                        <p></p>
+                    <p>Olá, Paulo. Você tem 01 mensagem(ns)</p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-grid-b springboard">
+
+                <!-- row 1, column 1 -->
+                <div class="ui-block-a">
+                    <a href="pages/assembleia.html" target="_top" data-transition="flip">
+                        <img src="images/springboard/assembleia.png" class="springboard-portrait-img" />
+                        <p></p>
+                    <p>Assembleia</p>
+                    </a>
+                </div>
+
+                <!-- row 1, column 2 -->
+                <div class="ui-block-b">
+                    <a href="#portaria" data-transition="flip">
+                        <img src="images/springboard/porteiro_icone.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                    <p>Portaria</p>
+                    </a>
+                </div>
+
+                <!-- row 2, column 1 -->
+                <div class="ui-block-c">
+                    <a href="#radar" data-transition="flip">
+                        <img src="images/springboard/radar.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                    <p>Chegada segura</p>
+                    </a>
+                </div>
+
+                <!-- row 2, column 2 -->
+                <div class="ui-block-a">
+                    <a href="pages/social.html" target="_top" data-transition="flip">
+                        <img src="images/springboard/social1.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                    <p>Condominio social</p>
+                    </a>
+                </div>
+
+                <!-- row 3, column 1 -->
+                <div class="ui-block-b">
+                    <a href="#classificados" data-transition="flip">
+                        <img src="images/springboard/classificados.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                    <p>Classificados</p>
+                  </a>
+              </div>
+
+                <!-- row 3, column 2 -->
+                <div class="ui-block-c">
+                    <a href="#convenios" data-transition="flip">
+                        <img src="images/springboard/convenios.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                        <p>Convênios</p>
+                  </a>
+              </div>
+
+</div>
+            <div class="ui-grid-a springboard">
+
+                <!-- row 4, column 1 -->
+                <div class="ui-block-a">
+                    <a href="#panico" data-transition="flip">
+                        <img src="images/springboard/panico.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                    <p>Pânico</p>
+                  </a>
+              </div>
+                <!-- row 4, column 2 -->
+                <div class="ui-block-b">
+                    <a href="#setup" data-transition="flip">
+                        <img src="images/springboard/setup.png" class="springboard-portrait-img"></img>
+                    <p></p>
+                        <p>Configurações</p>
+                  </a>
+              </div>
+            </div>
+
+        </div> <!-- content -->
+
+    </div> <!-- page: home -->
+
+    <!-- friends -->
+    <div data-role="page" id="perfil" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1><img src="images/springboard/perfil.png" width="76" alt="Paulo Addair" class="springboard-portrait-img" id="profile" >Paulo Addair
+            </h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+        <table width="100%" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td>BLOCO B</td>
+    <td>ap. 21</td>
+  </tr>
+  <tr class="ui-bar-b">
+    <td class="slide">Mensagens</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>14:30 h - de: Portaria</td>
+    <td>Chegada de correspondência</td>
+  </tr>
+  <tr class="ui-bar-b">
+    <td colspan="3">Situação cadastral:</td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>Ativo</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="ui-bar-b">Veículos:</td>
+    </tr>
+  <tr>
+    <td>Corsa sedan - Preto</td>
+    <td><img src="images/placaAAA.jpg" width="150" height="50" alt="Corsa sedan - Preto"></td>
+    <td>entrou ontem às 21:35</td>
+  </tr>
+  <tr>
+    <td>Audi A4 - Cinza</td>
+    <td><img src="images/placaPLA.jpg" width="150" height="50" alt="Audi A4 - Cinza"></td>
+    <td>saiu hoje às 7:55</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+atualizado às 17:33
+          </div>
+        </div>
+
+
+    </div> <!-- page: friends -->
+
+    <!-- videos -->
+    <div data-role="page" id="portaria" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Portaria Virtual</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+            </div>
+        </div>
+
+    </div> <!-- page: videos -->
+
+    <!-- photos -->
+    <div data-role="page" id="radar" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Chegada segura</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: photos -->
+
+    <!-- blogs -->
+    <div data-role="page" id="social" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Rede social</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: blogs -->
+
+    <!-- blogs -->
+    <div data-role="page" id="classificados" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Classificados</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: blogs -->
+
+    <!-- blogs -->
+    <div data-role="page" id="convenios" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Convênios</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: blogs -->
+
+    <!-- blogs -->
+    <div data-role="page" id="panico" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Emergência</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: blogs -->
+
+    <!-- blogs -->
+    <div data-role="page" id="setup" data-theme="a">
+
+        <!-- header (same data-id for persistent toolbar) -->
+        <div data-role="header" data-id="springboardnav-header" data-position="fixed">
+            <h1>Configurações</h1>
+            <!-- wrap link inside div to prevent jquery mobile from automatically converting to button -->
+            <div class="springboard-backbtn">
+                <a href="#" data-rel="back">
+                    &lt Voltar
+                </a>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div data-role="content">
+            <!-- custom credits footer -->
+            <div class="springboard-credits">
+
+            </div>
+        </div>
+
+    </div> <!-- page: blogs -->
+</body>
+
+</html>
