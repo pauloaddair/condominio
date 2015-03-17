@@ -57,6 +57,22 @@
 </head>
 
 <body>
+<script>
+document.addEventListener('deviceready', function () {
+	var now                  = new Date().getTime(),
+		_60_seconds_from_now = new Date(now + 60*1000);
+	
+	window.plugin.notification.local.add({
+		id:      1,
+		title:   'Reminder',
+		message: 'Dont forget to buy some flowers.',
+		repeat:  'weekly',
+		badge:   3,  // Displays number badge to notification
+    	date:    _60_seconds_from_now
+	});
+		// window.plugin.notification.local is now available
+}, false);
+</script>
 
     <!-- home page -->
     <div data-role="page" id="home" data-theme="a">
