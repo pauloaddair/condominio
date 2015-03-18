@@ -61,6 +61,8 @@
 document.addEventListener('deviceready', function () {
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
+	var objCanvas = document.getElementById("canvas");
+    window.plugin.CanvasCamera.initialize(objCanvas);
 	window.plugins.spinnerDialog.show(null,'Exemplo!');
 	window.plugin.notification.local.add({
 		id:      1,
@@ -90,6 +92,7 @@ document.addEventListener('deviceready', function () {
                 <!-- row 1, column 1 -->
                 <div class="ui-block-a">
                     <a href="#perfil" data-transition="slidedown">
+                       <div id="canvas"></div>
                         <img src="images/springboard/perfil.png" class="springboard-portrait-img" id="profile"/>
                         <p></p>
                     <p>Olá, Paulo. Você tem 03 mensagem(ns)</p>
