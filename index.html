@@ -75,7 +75,6 @@
                 <!-- row 1, column 1 -->
                 <div class="ui-block-a">
                     <a href="#perfil" data-transition="slidedown">
-                       <div id="canvas"></div>
                         <img src="images/springboard/perfil.png" class="springboard-portrait-img" id="profile"/>
                         <p></p>
                     <p>Olá, Paulo. Você tem 03 mensagem(ns)</p>
@@ -88,7 +87,7 @@
 
                 <!-- row 1, column 1 -->
                 <div class="ui-block-a">
-                    <a href="pages/assembleia.html" target="_top" data-transition="flip">
+                    <a href="pages/assembleia.html" target="_top" data-transition="flip" onclick="window.plugins.toast.showLongBottom('Carregando Assembleia!', function(a){null}, function(b){alert('Erro: ' + b)})">
                         <img src="images/springboard/assembleia.png" class="springboard-portrait-img" />
                         <p></p>
                     <p>Assembleia</p>
@@ -416,7 +415,7 @@ document.addEventListener('deviceready', function () {
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
 	var objCanvas = document.getElementById("canvas");
-	window.plugins.spinnerDialog.show(null,'Exemplo!');
+	window.plugins.spinnerDialog.show(null,'Atualizando!');
 	window.plugin.notification.local.add({
 		id:      1,
 		title:   'Lembrete',
