@@ -94,7 +94,9 @@ document.addEventListener('deviceready', function () {
                         <p></p>
                     <p>Olá, Paulo. Você tem 03 mensagem(ns)</p>
                     </a>
-                </div>
+                <button onclick="window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showShortTop</button>
+<button onclick="window.plugins.toast.showLongBottom('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showLongBottom</button>
+<button onclick="window.plugins.toast.show('Hello there!', 'long', 'center', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast show long center</button></div>
             </div>
             <div class="ui-grid-b springboard">
 
