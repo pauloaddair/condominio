@@ -61,7 +61,7 @@
 document.addEventListener('deviceready', function () {
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
-	window.plugins.spinnerDialog.show;
+	window.plugins.spinnerDialog.show(null,'Exemplo!');
 	window.plugin.notification.local.add({
 		id:      1,
 		title:   'Reminder',
