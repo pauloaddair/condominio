@@ -82,7 +82,7 @@
                     </a>
                 <button onclick="window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showShortTop</button>
 <button onclick="window.plugins.toast.showLongBottom('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showLongBottom</button>
-<button onclick="window.plugins.toast.show('Hello there!', 'long', 'center', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast show long center</button><button onclick="onStartClicked();">Mostrar câmera</button></div>
+<button onclick="window.plugins.toast.show('Hello there!', 'long', 'center', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast show long center</button><button onclick="dialog();">Mostrar diálogo</button></div>
             </div>
             <div class="ui-grid-b springboard">
 
@@ -421,25 +421,24 @@ document.addEventListener('deviceready', function () {
 	window.plugin.notification.local.add({
 		id:      1,
 		title:   'Lembrete',
-		message: 'Não esqueça da reunião de comomínio às 19:30',
+		message: 'Não esqueça da reunião de condomínio às 19:30',
 		repeat:  'weekly',
 		badge:   3,  // Displays number badge to notification
     	date:    _60_seconds_from_now
 	});
 }, false);
 
-function onStartClicked()
-{
-    var options = {
-        quality: 75,
-        destinationType: CanvasCamera.DestinationType.DATA_URL,
-        encodingType: CanvasCamera.EncodingType.JPEG,
-        width: 640,
-        height: 480
-    };
-    window.plugin.CanvasCamera.start(options);
-	alert('OK!');
+function alertDismissed() {
+    // do something
 }
+function dialog() {
+navigator.notification.alert(
+    'Você chegou!',  // message
+    alertDismissed,         // callback
+    'FINAL',            // title
+    'OK'                  // buttonName
+)
+};
 </script>
 
 </html>
