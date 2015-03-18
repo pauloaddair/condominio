@@ -57,23 +57,6 @@
 </head>
 
 <body>
-<script>
-document.addEventListener('deviceready', function () {
-	var now                  = new Date().getTime(),
-		_60_seconds_from_now = new Date(now + 60*1000);
-	var objCanvas = document.getElementById("canvas");
-    window.plugin.CanvasCamera.initialize(objCanvas);
-	window.plugins.spinnerDialog.show(null,'Exemplo!');
-	window.plugin.notification.local.add({
-		id:      1,
-		title:   'Lembrete',
-		message: 'Não esqueça da reunião de comomínio às 19:30',
-		repeat:  'weekly',
-		badge:   3,  // Displays number badge to notification
-    	date:    _60_seconds_from_now
-	});
-}, false);
-</script>
 
     <!-- home page -->
     <div data-role="page" id="home" data-theme="a">
@@ -99,7 +82,7 @@ document.addEventListener('deviceready', function () {
                     </a>
                 <button onclick="window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showShortTop</button>
 <button onclick="window.plugins.toast.showLongBottom('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast showLongBottom</button>
-<button onclick="window.plugins.toast.show('Hello there!', 'long', 'center', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast show long center</button></div>
+<button onclick="window.plugins.toast.show('Hello there!', 'long', 'center', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})">Toast show long center</button><button onclick="onStartClicked();">Mostrar câmera</button></div>
             </div>
             <div class="ui-grid-b springboard">
 
@@ -428,5 +411,34 @@ atualizado às 17:33
 
     </div> <!-- page: blogs -->
 </body>
+<script>
+document.addEventListener('deviceready', function () {
+	var now                  = new Date().getTime(),
+		_60_seconds_from_now = new Date(now + 60*1000);
+	var objCanvas = document.getElementById("canvas");
+    window.plugin.CanvasCamera.initialize(objCanvas);
+	window.plugins.spinnerDialog.show(null,'Exemplo!');
+	window.plugin.notification.local.add({
+		id:      1,
+		title:   'Lembrete',
+		message: 'Não esqueça da reunião de comomínio às 19:30',
+		repeat:  'weekly',
+		badge:   3,  // Displays number badge to notification
+    	date:    _60_seconds_from_now
+	});
+}, false);
+
+function onStartClicked()
+{
+    var options = {
+        quality: 75,
+        destinationType: CanvasCamera.DestinationType.DATA_URL,
+        encodingType: CanvasCamera.EncodingType.JPEG,
+        width: 640,
+        height: 480
+    };
+    window.plugin.CanvasCamera.start(options);
+}
+</script>
 
 </html>
