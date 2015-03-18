@@ -412,7 +412,13 @@ document.addEventListener('deviceready', function () {
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
 	var objCanvas = document.getElementById("canvas");
-	window.plugins.spinnerDialog.show(null,'Atualizando!');
+	var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
+	telephoneNumber.get(function(result) {
+        window.plugins.spinnerDialog.show(null,"result = " + result);
+    }, function() {
+        console.log("error");
+    });
+	
 	window.plugin.notification.local.add({
 		id:      1,
 		title:   'Lembrete',
