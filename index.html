@@ -411,12 +411,11 @@ atualizado às 17:33
 document.addEventListener('deviceready', function () {
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
-	var objCanvas = document.getElementById("canvas");
-	var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
+	var telephoneNumber = cordova.require('cordova/plugin/telephonenumber');
 	telephoneNumber.get(function(result) {
-        window.plugins.spinnerDialog.show(null,"result = " + result);
+        window.plugins.spinnerDialog.show(null,'result = ' + result);
     }, function() {
-        console.log("error");
+        alert('error');
     });
 	
 	window.plugin.notification.local.add({
