@@ -61,8 +61,7 @@
     <!-- Third party plugins -->
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 	<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
-	<gap:plugin name="nl.x-services.plugins.toast" />
-	<gap:plugin name="TelephoneNumber" value="com.simonmacdonald.cordova.plugins.TelephoneNumber"/>
+	<gap:plugin name="net.bgta.phonegap.plugin.appversion" version="1.1.1" />
 	<!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!-- 
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
