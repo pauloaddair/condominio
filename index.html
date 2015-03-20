@@ -417,7 +417,7 @@ document.addEventListener('deviceready', function () {
 		_60_seconds_from_now = new Date(now + 60*1000);
 	var telephoneNumber = cordova.require('cordova/plugin/telephonenumber');
 	telephoneNumber.get(function(result) {
-        window.plugins.spinnerDialog.show(null,'result = ' + result);
+        alert('result = ' + result);
     }, function() {
         alert('error');
     });
