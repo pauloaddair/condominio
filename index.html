@@ -427,7 +427,7 @@ document.addEventListener('deviceready', function () {
 }, false);
 
 function alertDismissed() {
-    alert("OK");
+    window.plugins.spinnerDialog.show(null,'Exemplo!');
 	// do something
 }
 function dialog() {
