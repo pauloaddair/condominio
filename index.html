@@ -409,10 +409,6 @@ atualizado às 17:33
 </body>
 <script>
 document.addEventListener('deviceready', function () {
-	getAppVersion(function(version) {
-    alert('Versão: ' + version);
-});
-	alert("Version OK!");
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
 
@@ -424,10 +420,15 @@ document.addEventListener('deviceready', function () {
 		badge:   3,  // Displays number badge to notification
     	date:    _60_seconds_from_now
 	});
+	getAppVersion(function(version) {
+    alert('Versão: ' + version);
+});
+	dialog();
 }, false);
 
 function alertDismissed() {
-    // do something
+    alert("OK");
+	// do something
 }
 function dialog() {
 navigator.notification.alert(
