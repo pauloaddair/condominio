@@ -45,12 +45,23 @@
 
     .springboard img {
         height: 90px;
+		-webkit-border-radius: 45px;
+		-moz-border-radius: 45px;
+		border-radius: 45px;
     }
 
+	#profile {
+		-webkit-border-radius: 45px;
+		-moz-border-radius: 45px;
+		border-radius: 45px;
+	}
 /* don't let image overflow springboard grid nor exceed its native width */
 @media all and (max-width: 321px) and (min-width: 0px){
     .springboard img {
         height: 50px;
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		border-radius: 25px;
     }
 	#profile {
 		-webkit-border-radius: 25px;
@@ -62,6 +73,9 @@
 @media all and (min-width: 322px){
     .springboard img {
         height: 76px;
+		-webkit-border-radius: 38px;
+		-moz-border-radius: 38px;
+		border-radius: 38px;
     }
 
 	#profile {
@@ -112,7 +126,30 @@
     font-weight: normal;
 }
 #profile {
-	-webkit-border-radius: 45px;
-	-moz-border-radius: 45px;
-	border-radius: 45px;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	height: 70px;
+	width: 140px;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+#profile #img {
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	height: 70px;
+	width: 70px;
+}
+
+#profile #msg {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	display: inline;
 }

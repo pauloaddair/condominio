@@ -75,7 +75,7 @@
                 <!-- row 1, column 1 -->
                 <div class="ui-block-a">
                     <a href="#perfil" data-transition="slidedown">
-                        <img src="images/springboard/perfil.png" class="springboard-portrait-img" id="profile"/>
+                        <img src="images/springboard/perfil.png" class="springboard-portrait-img"/>
                     <p>Olá, Paulo. Você tem 03 mensagem(ns)</p>
                     </a>
                     </div>
@@ -412,6 +412,7 @@ document.addEventListener('deviceready', function () {
 	getAppVersion(function(version) {
     window.plugins.toast.showLongBottom('Versão: ' + version, function(a){null}, function(b){alert('Erro: ' + b)});
 });
+	alert("Version OK!");
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
 	var telephoneNumber = cordova.require('cordova/plugin/telephonenumber');
