@@ -409,6 +409,9 @@ atualizado às 17:33
 </body>
 <script>
 document.addEventListener('deviceready', function () {
+	getAppVersion(function(version) {
+    window.plugins.toast.showLongBottom('Versão: ' + version, function(a){null}, function(b){alert('Erro: ' + b)});
+});
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
 	var telephoneNumber = cordova.require('cordova/plugin/telephonenumber');
