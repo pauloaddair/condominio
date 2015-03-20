@@ -410,18 +410,12 @@ atualizado às 17:33
 <script>
 document.addEventListener('deviceready', function () {
 	getAppVersion(function(version) {
-    window.plugins.toast.showLongBottom('Versão: ' + version, function(a){null}, function(b){alert('Erro: ' + b)});
+    alert('Versão: ' + version);
 });
 	alert("Version OK!");
 	var now                  = new Date().getTime(),
 		_60_seconds_from_now = new Date(now + 60*1000);
-	var telephoneNumber = cordova.require('cordova/plugin/telephonenumber');
-	telephoneNumber.get(function(result) {
-        alert('result = ' + result);
-    }, function() {
-        alert('error');
-    });
-	
+
 	window.plugin.notification.local.add({
 		id:      1,
 		title:   'Lembrete',
