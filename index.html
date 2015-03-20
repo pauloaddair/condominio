@@ -421,7 +421,7 @@ document.addEventListener('deviceready', function () {
     	date:    _60_seconds_from_now
 	});
 	getAppVersion(function(version) {
-    alert('Versão: ' + version);
+    window.plugins.toast.showLongBottom('Versão: ' + version, function(a){null}, function(b){alert('Erro: ' + b)});
 });
 	dialog();
 }, false);
