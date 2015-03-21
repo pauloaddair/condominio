@@ -102,7 +102,7 @@
 
                 <!-- row 2, column 1 -->
                 <div class="ui-block-c">
-                    <a href="#radar" data-transition="flip" onClick="abriragenda();">
+                    <a href="#" onClick="abriragenda();">
                         <img src="images/springboard/radar.png" class="springboard-portrait-img"></img>
                     <p></p>
                     <p>Chegada segura</p>
@@ -449,7 +449,8 @@ navigator.notification.alert(
 function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         for (var j = 0; j < contacts[i].addresses.length; j++) {
-            alert("Pref: "         + contacts[i].addresses[j].pref          + "\n" +
+            alert(contacts[i].displayName  + "\n" +
+			"Pref: "         + contacts[i].addresses[j].pref          + "\n" +
                 "Type: "           + contacts[i].addresses[j].type          + "\n" +
                 "Formatted: "      + contacts[i].addresses[j].formatted     + "\n" +
                 "Street Address: " + contacts[i].addresses[j].streetAddress + "\n" +
@@ -458,6 +459,7 @@ function onSuccess(contacts) {
                 "Postal Code: "    + contacts[i].addresses[j].postalCode    + "\n" +
                 "Country: "        + contacts[i].addresses[j].country);
         }
+		
     }
 };
 
@@ -465,12 +467,13 @@ function onError(contactError) {
     alert('onError!');
 };
 function abriragenda(){
+    window.plugins.spinnerDialog.show(null,'Carregando...!');
 	// find all contacts with 'Bob' in any name field
 	var options      = new ContactFindOptions();
-	options.filter   = "Bob";
-	options.multiple = true;
-	options.desiredFields = [navigator.contacts.fieldType.id];
-	var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+	options.filter = "";
+	var filter = ["displayName", "addresses"];
+	navigator.contacts.find(filter, onSuccess, onError, options);
+    window.plugins.spinnerDialog.hide();
 	navigator.contacts.find(fields, onSuccess, onError, options);
 }
 </script>

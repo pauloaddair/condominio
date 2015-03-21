@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.novaeratec.condominio"
-        version   = "0.3.41">
+        version   = "0.3.42">
 
     <name>Condominio Virtual</name>
 
